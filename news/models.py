@@ -1,4 +1,6 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.urls import reverse
 
 
 class Topic(models.Model):
@@ -12,3 +14,11 @@ class Topic(models.Model):
         return self.name
 
 
+class Redactor(AbstractUser):
+    years_of_experience = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ["username"]
+
+    def __str__(self):
+        return self.username
