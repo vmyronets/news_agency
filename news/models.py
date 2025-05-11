@@ -5,7 +5,7 @@ from django.urls import reverse
 
 
 class Topic(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, null=False, blank=False)
 
     class Meta:
         verbose_name = "topic"
@@ -29,8 +29,8 @@ class Redactor(AbstractUser):
 
 
 class Newspaper(models.Model):
-    title = models.CharField(max_length=255)
-    content = models.TextField()
+    title = models.CharField(max_length=255, null=False, blank=False)
+    content = models.TextField(null=False, blank=False)
     published_date = models.DateTimeField(auto_now_add=True)
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE,
                               related_name="newspapers")
