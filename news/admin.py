@@ -1,3 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
+from .models import Newspaper, Redactor, Topic
 
-# Register your models here.
+
