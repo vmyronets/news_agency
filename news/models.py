@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.urls import reverse
@@ -33,7 +34,10 @@ class Newspaper(models.Model):
     published_date = models.DateTimeField(auto_now_add=True)
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE,
                               related_name="newspapers")
-    publishers = models.ManyToManyField(Redactor, related_name="newspapers")
+    publishers = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        related_name="newspapers"
+    )
 
     class Meta:
         verbose_name = "newspaper"
