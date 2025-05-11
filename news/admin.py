@@ -28,3 +28,6 @@ class RedactorAdmin(UserAdmin):
 class NewspaperAdmin(admin.ModelAdmin):
     search_fields = ("title",)
     list_filter = ("-published_date",)
+
+
+admin.site.register(Topic)
