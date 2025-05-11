@@ -23,3 +23,8 @@ class RedactorAdmin(UserAdmin):
             ),
         )
     )
+
+@admin.register(Newspaper)
+class NewspaperAdmin(admin.ModelAdmin):
+    search_fields = ("title",)
+    list_filter = ("-published_date",)
