@@ -3,7 +3,7 @@ from news.views import(
     index,
     TopicListView,
     TopicDetailView,
-
+    TopicUpdateView,
 )
 
 
@@ -16,7 +16,11 @@ urlpatterns = [
         TopicUpdateView.as_view(),
         name="topic-update"
     ),
-
+    path(
+        "topics/<int:pk>/delete/",
+        TopicDeleteView.as_view(),
+        name="topic-delete"
+    ),
 ]
 
 app_name = "news"
