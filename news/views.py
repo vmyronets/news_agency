@@ -35,3 +35,9 @@ class TopicCreateView(generic.CreateViewView):
     model = Topic
     fields = ["name"]
     success_url = reverse_lazy("news:topic_list")
+
+
+class TopicUpdateView(generic.UpdateView):
+    model = Topic
+    fields = "__all__"
+    success_url = reverse_lazy("news:topic_list")
