@@ -1,6 +1,7 @@
 from django.shortcuts import render
+from django.views import generic
 
-from .models import Topic, Redactor, Newspaper
+from news.models import Topic, Redactor, Newspaper
 
 
 def index(request):
@@ -21,3 +22,9 @@ def index(request):
     }
 
     return render(request, "news/index.html", context=context)
+
+
+class TopicListView(generic.ListView):
+    model = Topic
+    context_object_name = "topic_list"
+    template_name = "news/topic_list.html"
