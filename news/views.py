@@ -77,3 +77,8 @@ class NewspaperDeleteView(generic.DeleteView):
 class RedactorListView(generic.ListView):
     model = Redactor
     paginate_by = 5
+
+
+class RedactorDetailView(generic.DetailView):
+    model = Redactor
+    queryset = Redactor.objects.all().prefetch_related("newspapers__topics")
