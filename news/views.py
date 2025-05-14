@@ -58,3 +58,6 @@ class NewspapersDetailView(generic.DetailView):
     model = Newspaper
 
 
+class NewspaperCreateView(generic.CreateView):
+    model = Newspaper
+    success_url = reverse_lazy("news:newspaper_list")
