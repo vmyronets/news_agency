@@ -35,18 +35,18 @@ class TopicListView(generic.ListView):
 class TopicCreateView(generic.CreateView):
     model = Topic
     fields = ["name"]
-    success_url = reverse_lazy("news:topic_list")
+    success_url = reverse_lazy("news:topic-list")
 
 
 class TopicUpdateView(generic.UpdateView):
     model = Topic
     fields = "__all__"
-    success_url = reverse_lazy("news:topic_list")
+    success_url = reverse_lazy("news:topic-list")
 
 
 class TopicDeleteView(generic.DeleteView):
     model = Topic
-    success_url = reverse_lazy("news:topic_list")
+    success_url = reverse_lazy("news:topic-list")
 
 
 class NewspaperListView(generic.ListView):
@@ -60,18 +60,18 @@ class NewspaperDetailView(generic.DetailView):
 
 class NewspaperCreateView(generic.CreateView):
     model = Newspaper
-    success_url = reverse_lazy("news:newspaper_list")
+    success_url = reverse_lazy("news:newspaper-list")
 
 
 class NewspaperUpdateView(generic.UpdateView):
     model = Newspaper
     fields = "__all__"
-    success_url = reverse_lazy("news:newspaper_list")
+    success_url = reverse_lazy("news:newspaper-list")
 
 
 class NewspaperDeleteView(generic.DeleteView):
     model = Newspaper
-    success_url = reverse_lazy("news:newspaper_list")
+    success_url = reverse_lazy("news:newspaper-list")
 
 
 class RedactorListView(generic.ListView):
@@ -87,4 +87,10 @@ class RedactorDetailView(generic.DetailView):
 class RedactorCreateView(generic.CreateView):
     model = Redactor
     fields = "__all__"
-    success_url = reverse_lazy("news:redactor_list")
+    success_url = reverse_lazy("news:redactor-list")
+
+
+class RedactorUpdateView(generic.UpdateView):
+    model = Redactor
+    fields = ["years_of_experience"]
+    success_url = reverse_lazy("news:redactor-list")
