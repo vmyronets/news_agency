@@ -94,3 +94,8 @@ class RedactorUpdateView(generic.UpdateView):
     model = Redactor
     fields = ["years_of_experience"]
     success_url = reverse_lazy("news:redactor-list")
+
+
+class RedactorDeleteView(generic.DeleteView):
+    model = Redactor
+    success_url = reverse_lazy("news:redactor-list")
