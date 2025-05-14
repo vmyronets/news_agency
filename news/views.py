@@ -82,3 +82,9 @@ class RedactorListView(generic.ListView):
 class RedactorDetailView(generic.DetailView):
     model = Redactor
     queryset = Redactor.objects.all().prefetch_related("newspapers__topics")
+
+
+class RedactorCreateView(generic.CreateView):
+    model = Redactor
+    fields = "__all__"
+    success_url = reverse_lazy("news:redactor_list")
