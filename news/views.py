@@ -67,3 +67,8 @@ class NewspaperUpdateView(generic.UpdateView):
     model = Newspaper
     fields = "__all__"
     success_url = reverse_lazy("news:newspaper_list")
+
+
+class NewspaperDeleteView(generic.DeleteView):
+    model = Newspaper
+    success_url = reverse_lazy("news:newspaper_list")
