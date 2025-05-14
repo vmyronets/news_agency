@@ -29,9 +29,10 @@ class TopicListView(generic.ListView):
     model = Topic
     context_object_name = "topic_list"
     template_name = "news/topic_list.html"
+    paginate_by = 5
 
 
-class TopicCreateView(generic.CreateViewView):
+class TopicCreateView(generic.CreateView):
     model = Topic
     fields = ["name"]
     success_url = reverse_lazy("news:topic_list")
