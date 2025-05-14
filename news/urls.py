@@ -10,6 +10,7 @@ from news.views import (
     NewspaperUpdateView,
     NewspaperDeleteView,
     RedactorListView,
+    RedactorDetailView,
 )
 
 
@@ -49,6 +50,11 @@ urlpatterns = [
          name="newspaper-delete"
          ),
     path("redactors/", RedactorListView.as_view(), name="redactor-list"),
+    path(
+        "redactors/<int:pk>",
+        RedactorDetailView.as_view(),
+        name="redactor-detail"
+    ),
 ]
 
 app_name = "news"
