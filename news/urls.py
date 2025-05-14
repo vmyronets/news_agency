@@ -12,6 +12,7 @@ from news.views import (
     RedactorListView,
     RedactorDetailView,
     RedactorCreateView,
+    RedactorUpdateView,
 )
 
 
@@ -60,6 +61,10 @@ urlpatterns = [
         "redacrors/create/",
         RedactorCreateView.as_view(),
         name="redactor-create"
+         ),
+    path("redactors/<int:pk>/update/",
+         RedactorUpdateView.as_view(),
+         name="redactor-update"
          ),
 ]
 
