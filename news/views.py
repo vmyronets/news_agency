@@ -52,3 +52,9 @@ class TopicDeleteView(generic.DeleteView):
 class NewspaperListView(generic.ListView):
     model = Newspaper
     paginate_by = 5
+
+
+class NewspapersDetailView(generic.DetailView):
+    model = Newspaper
+
+
