@@ -54,10 +54,16 @@ class NewspaperListView(generic.ListView):
     paginate_by = 5
 
 
-class NewspapersDetailView(generic.DetailView):
+class NewspaperDetailView(generic.DetailView):
     model = Newspaper
 
 
 class NewspaperCreateView(generic.CreateView):
     model = Newspaper
+    success_url = reverse_lazy("news:newspaper_list")
+
+
+class NewspaperUpdateView(generic.UpdateView):
+    model = Newspaper
+    fields = "__all__"
     success_url = reverse_lazy("news:newspaper_list")
