@@ -35,12 +35,14 @@ class TopicListView(generic.ListView):
 class TopicCreateView(generic.CreateView):
     model = Topic
     fields = ["name"]
+    template_name = "news/topic_create.html"
     success_url = reverse_lazy("news:topic-list")
 
 
 class TopicUpdateView(generic.UpdateView):
     model = Topic
     fields = "__all__"
+    template_name = "news/topic_update.html"
     success_url = reverse_lazy("news:topic-list")
 
 
