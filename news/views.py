@@ -62,6 +62,8 @@ class NewspaperDetailView(generic.DetailView):
 
 class NewspaperCreateView(generic.CreateView):
     model = Newspaper
+    fields = "__all__"
+    template_name = "news/newspaper_create.html"
     success_url = reverse_lazy("news:newspaper-list")
 
 
