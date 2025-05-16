@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h1>
+    Newspaper list
+    <a href="{% url 'news:newspaper-create' %}" class="btn btn-primary link-to-page">
+      Create
+    </a>
+  </h1>
+  {% if newspaper_list %}
+    <ul>
+      {% for newspaper in newspaper_list %}
+        <li>
+          <a href="{% url "news:newspaper-detail" pk=newspaper.id %} ">{{ newspaper.title }}</a>
+           ({{ newspaper.published_date|date:"F j, Y" }} - {{ newspaper.topic }})
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no newspapers in the agency</p>
+  {% endif %}
+
+{% endblock %}
