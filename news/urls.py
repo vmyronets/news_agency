@@ -76,7 +76,7 @@ urlpatterns = [
         name="redactor-detail"
     ),
     path(
-        "redacrors/create/",
+        "redactors/create/",
         RedactorCreateView.as_view(),
         name="redactor-create"
     ),
