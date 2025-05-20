@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from news.forms import RedactorCreationForm, NewspaperForm
+from news.forms import RedactorCreationForm, NewspaperForm, TopicSearchForm
 from news.models import Topic, Redactor, Newspaper
 
 
@@ -31,9 +31,14 @@ def index(request):
 
 class TopicListView(LoginRequiredMixin, generic.ListView):
     model = Topic
-    context_object_name = "topic_list"
-    template_name = "news/topic_list.html"
     paginate_by = 5
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        name = self.request.GET.get("name", "")
+        context["search_topic"] = TopicSearchForm(initial={"name": name})
+        return context
+
 
 
 class TopicCreateView(LoginRequiredMixin, generic.CreateView):
