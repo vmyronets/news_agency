@@ -49,7 +49,9 @@ class TopicListView(LoginRequiredMixin, generic.ListView):
         queryset = Topic.objects.all()
         form = TopicSearchForm(self.request.GET)
         if form.is_valid():
-            return queryset.filter(name__icontains=form.cleaned_data["name"])
+            return queryset.filter(
+                name__icontains=form.cleaned_data.get("name")
+            )
         return queryset
 
 
