@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Delete newspaper</h1>
+  <h1>Delete newspaper</h1>
   <p>Are you sure you want to delete newspaper "{{ object }}"?</p>
   <form action="" method="post">
-  {% csrf_token %}
-  <input type="submit" value="Yes, delete" class="btn btn-danger">
-  <a href="{% url 'news:newspaper-list' %}" class="btn btn-primary">Cancel</a>
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete" class="btn btn-danger">
+    <a href="{% url 'news:newspaper-list' %}" class="btn btn-secondary">Cancel</a>
   </form>
 {% endblock %}
