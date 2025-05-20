@@ -2,6 +2,10 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
+  <form action="" method="get" class="form-inline">
+    {{ search_newspaper|crispy }}
+    <input class="btn btn-secondary" type="submit" value="Search">
+  </form>
   <h1>
     Newspaper list
     <a href="{% url 'news:newspaper-create' %}" class="btn btn-primary link-to-page">
@@ -13,7 +17,7 @@
       {% for newspaper in newspaper_list %}
         <li>
           <a href="{% url "news:newspaper-detail" pk=newspaper.id %} ">{{ newspaper.title }}</a>
-           ({{ newspaper.published_date|date:"F j, Y" }} - {{ newspaper.topic }})
+          ({{ newspaper.published_date|date:"F j, Y" }} - {{ newspaper.topic }})
         </li>
       {% endfor %}
     </ul>
