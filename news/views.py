@@ -8,7 +8,7 @@ from news.forms import (
     RedactorCreationForm,
     NewspaperForm,
     TopicSearchForm,
-    NewspaperSearchForm,
+    NewspaperSearchForm, RedactorSearchForm,
 )
 from news.models import Topic, Redactor, Newspaper
 
@@ -119,6 +119,23 @@ class NewspaperDeleteView(LoginRequiredMixin, generic.DeleteView):
 class RedactorListView(LoginRequiredMixin, generic.ListView):
     model = Redactor
     paginate_by = 5
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        username = self.request.GET.get("username", "")
+        context["search_redactor"] = RedactorSearchForm(
+            initial={"username": username}
+        )
+        return context
+
+    def get_queryset(self):
+        queryset = Redactor.objects.all()
+        form = RedactorSearchForm(self.request.GET)
+        if form.is_valid():
+            return queryset.filter(
+                username__icontains=form.cleaned_data.get("username")
+            )
+        return queryset
 
 
 class RedactorDetailView(LoginRequiredMixin, generic.DetailView):
