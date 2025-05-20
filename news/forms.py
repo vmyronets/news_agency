@@ -15,12 +15,6 @@ class RedactorCreationForm(UserCreationForm):
         )
 
 
-class RedactorUpdateForm(forms.ModelForm):
-    class Meta:
-        model = Redactor
-        fields = ("username", "first_name", "last_name", "years_of_experience")
-
-
 class NewspaperForm(forms.ModelForm):
     publishers = forms.ModelMultipleChoiceField(
         queryset=get_user_model().objects.all(),
