@@ -12,3 +12,9 @@ class RedactorCreationForm(UserCreationForm):
             "last_name",
             "years_of_experience"
         )
+
+
+class RedactorUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Redactor
+        fields = ("username", "first_name", "last_name", "years_of_experience")
