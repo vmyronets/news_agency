@@ -27,7 +27,7 @@ class NewspaperForm(forms.ModelForm):
 
 
 class TopicSearchForm(forms.Form):
-    topic = forms.CharField(
+    name = forms.CharField(
         max_length=70,
         required=False,
         label="",
