@@ -24,3 +24,12 @@ class NewspaperForm(forms.ModelForm):
     class Meta:
         model = Newspaper
         fields = "__all__"
+
+
+class TopicSearchForm(forms.Form):
+    topic = forms.CharField(
+        max_length=70,
+        required=False,
+        label="",
+        widget=forms.TextInput(attrs={"placeholder": "Search by name"})
+    )
