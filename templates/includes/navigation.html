@@ -1,0 +1,52 @@
+<div class="container position-sticky z-index-sticky top-0">
+  <div class="row">
+    <div class="col-12">
+      <nav
+          class="navbar navbar-expand-lg  blur blur-rounded top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+        <div class="container-fluid">
+          <a class="navbar-brand font-weight-bolder ms-sm-3"
+             href="/" rel="tooltip" title="Coded by Volodymyr Myronets" data-placement="bottom">
+            News Agency Information System
+          </a>
+          <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
+                  aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon mt-2">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </span>
+          </button>
+          <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0" id="navigation">
+            <ul class="navbar-nav w-100 justify-content-center">
+              <li class="nav-item text-center ms-auto custom-nav-link-group">
+                <a class="nav-link ps-2 d-flex cursor-pointer align-items-center"
+                   href="{% url 'news:newspaper-list' %}">
+                  <i class="ni ni-books text-gradient text-primary me-2"></i>
+                  Newspapers
+                </a>
+              </li>
+              <li class="nav-item mx-2 text-center custom-nav-link-group">
+                <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="{% url 'news:redactor-list' %}">
+                  <i class="ni ni-single-02 text-gradient text-primary me-2"></i>
+                  Redactors
+                </a>
+              </li>
+              <li class="nav-item me-auto text-center custom-nav-link-group">
+                <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="{% url 'news:topic-list' %}">
+                  <i class="ni ni-tag text-gradient text-primary me-2"></i>
+                  Topics
+                </a>
+              </li>
+              <li class="nav-item my-auto ms-3 ms-lg-0 logout-github-group">
+                <a href="https://github.com/vmyronets/news_agency"
+                   target="_blank"
+                   class="btn btn-sm bg-gradient-primary btn-round mb-0 me-1 mt-2 mt-md-0">PROJECT ON GITHUB</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>
