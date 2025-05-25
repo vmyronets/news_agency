@@ -15,6 +15,7 @@ from news.views import (
     RedactorCreateView,
     RedactorUpdateView,
     RedactorDeleteView,
+    toggle_assign_to_newspaper,
 )
 
 urlpatterns = [
@@ -64,6 +65,11 @@ urlpatterns = [
         "newspapers/<int:pk>/delete/",
         NewspaperDeleteView.as_view(),
         name="newspaper-delete"
+    ),
+    path(
+        "newspapers/<int:pk>/toggle-assign/",
+        toggle_assign_to_newspaper,
+        name="toggle-newspaper-assign",
     ),
     path(
         "redactors/",
