@@ -14,7 +14,19 @@
   <p><strong>Topic:</strong> {{ newspaper.topic.name }}</p>
   <p><strong>Content:</strong> {{ newspaper.content|truncatechars:50 }}</p>
 
-  <h4>Publishers</h4>
+  <h4>
+    Publishers
+      {% if newspaper in user.newspapers.all %}
+      <a href="{% url 'news:toggle-newspaper-assign' pk=newspaper.id %}" class="btn btn-danger link-to-page">
+        Delete me from this newspaper
+      </a>
+    {% else %}
+      <a href="{% url 'news:toggle-newspaper-assign' pk=newspaper.id %}" class="btn btn-success link-to-page">
+        Assign me to this newspaper
+      </a>
+    {% endif %}
+  </h4>
+  <hr>
   <ul>
     {% for publisher in newspaper.publishers.all %}
       <li>{{ publisher.username }} ({{ publisher.first_name }} {{ publisher.last_name }})</li>
