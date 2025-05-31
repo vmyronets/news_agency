@@ -11,7 +11,14 @@
 
   <header class="header-2">
     <div class="page-header section-height-75 relative"
-         style="background-image: url('{{ ASSETS_ROOT }}/img/curved-images/curved.jpg')">
+         style="background-image: url('{{ ASSETS_ROOT }}/img/images/main_page.jpg')">
+      <div class="sidebar-wrapper position-fixed h-40 d-md-block d-none">
+
+        {% block sidebar %}
+          {% include "includes/sidebar.html" %}
+        {% endblock %}
+
+      </div>
       <div class="container">
         <div class="row">
           <div class="col-lg-7 text-center mx-auto">
@@ -19,7 +26,7 @@
               <a class="text-white" target="_blank; text-decoration: none;"
                  href="#">News Agency</a>
             </h1>
-            <p class="lead text-white mt-3" >
+            <p class="lead text-white mt-3">
               <strong>The Whole World Is One Click Away</strong>
               <br/>
               <strong>Stay informed: The latest News — Is The Key to Success.</strong>
