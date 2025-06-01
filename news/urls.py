@@ -77,7 +77,7 @@ urlpatterns = [
         name="redactor-list"
     ),
     path(
-        "redactors/<int:pk>",
+        "redactors/<int:pk>/",
         RedactorDetailView.as_view(),
         name="redactor-detail"
     ),

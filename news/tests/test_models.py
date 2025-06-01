@@ -30,4 +30,18 @@ class TestRedactorModel(TestCase):
             f"({self.redactor.first_name} {self.redactor.last_name})"
         )
 
+    def test_experienced_redactor_creation(self) -> None:
+        """
+        Test creation of redactor with experience and password verification.
+        """
+        password = "test_password"
+        year_of_experience = 11
+        self.assertEqual(self.redactor.years_of_experience, year_of_experience)
+        self.assertTrue(self.redactor.check_password(password))
 
+    def test_get_absolute_url(self):
+        """Test the redactor's get_absolute_url method."""
+        self.assertEqual(
+            self.redactor.get_absolute_url(),
+            "/redactors/1/"
+        )
