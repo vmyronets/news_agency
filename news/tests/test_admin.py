@@ -1,12 +1,11 @@
 from django.contrib.auth import get_user_model
-from django.test import TestCase, Client
+from django.test import TestCase
 from django.urls import reverse
 
 
 class TestSiteAdmin(TestCase):
     def setUp(self) -> None:
         """Set up common test data."""
-        self.client = Client()
         self.admin_user = get_user_model().objects.create_superuser(
             username="admin",
             password="testadmin123",
