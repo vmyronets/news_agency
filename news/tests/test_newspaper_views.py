@@ -37,13 +37,13 @@ class PrivateNewspaperViewsTests(TestCase):
         self.client.force_login(self.user)
 
         self.topic = Topic.objects.create(
-            name="Test Topic",
+            name="Test Topic"
         )
 
         self.newspaper = Newspaper.objects.create(
             title="Test Newspaper",
             content="Test Content",
-            topic=self.topic,
+            topic=self.topic
         )
         self.newspaper.publishers.add(self.user)
 

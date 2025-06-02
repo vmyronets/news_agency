@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.contrib.auth import get_user_model
 
 from news.models import Topic, Newspaper
+from news.tests.test_newspaper_views import PrivateNewspaperViewsTests
 
 INDEX_URL = reverse("news:index")
 
@@ -10,25 +11,7 @@ INDEX_URL = reverse("news:index")
 class IndexViewTests(TestCase):
     def setUp(self):
         """Set up common test data."""
-        self.user = get_user_model().objects.create_user(
-            username="test_user",
-            password="test_password",
-            first_name="Test",
-            last_name="User",
-            years_of_experience=5
-        )
-        self.client.force_login(self.user)
-
-        self.topic = Topic.objects.create(
-            name="Test Topic",
-        )
-
-        self.newspaper = Newspaper.objects.create(
-            title="Test Newspaper",
-            content="Test Content",
-            topic=self.topic,
-        )
-        self.newspaper.publishers.add(self.user)
+        PrivateNewspaperViewsTests.setUp(self)
 
     def test_index_view_status_code(self):
         """Test that the index view returns a 200 status code for logged-in users."""
@@ -47,7 +30,7 @@ class IndexViewTests(TestCase):
         Newspaper.objects.create(
             title="Another Newspaper",
             content="Another Content",
-            topic=self.topic,
+            topic=self.topic
         )
         get_user_model().objects.create_user(
             username="another_user",

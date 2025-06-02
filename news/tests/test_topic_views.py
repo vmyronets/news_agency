@@ -30,15 +30,6 @@ class PrivateTopicViewsTest(TestCase):
         Tests the topic list view by performing a GET request to the topic URL,
         verifying the status code, response context, template used, and
         ensuring the expected types and data are present in the response.
-
-        Raises:
-            AssertionError: If any of the following assertions fail:
-                - The response status code is not 200.
-                - The topic list in the response context does not match the
-                  expected topic list from the database.
-                - The response does not use the expected template.
-                - The 'search_topic' object in the response context is not an
-                  instance of the TopicSearchForm class.
         """
         response = self.client.get(TOPIC_URL)
         topics = Topic.objects.all()
@@ -56,9 +47,6 @@ class PrivateTopicViewsTest(TestCase):
         returns the correct topics based on the provided query parameter. This
         test verifies the search capability for different cases, including
         exact matches and cases with an empty query string.
-
-        :raises AssertionError: If any of the assertions regarding the number
-            of topics returned, or the contents of the topic list fail.
         """
         topic = Topic.objects.create(name="different_topic")
 
@@ -85,8 +73,6 @@ class PrivateTopicViewsTest(TestCase):
         Tests the ability of the `topic-create` view to handle HTTP GET
         requests successfully. Ensures that the view responds with the correct
         status code and renders the expected template when accessed.
-
-        :return: None
         """
         url = reverse("news:topic-create")
         response = self.client.get(url)
@@ -100,13 +86,6 @@ class PrivateTopicViewsTest(TestCase):
         """
         Tests the topic creation functionality using POST request to verify
         that a new topic is successfully created and a redirection occurs.
-
-        :param self: Instance of the test class
-        :return: None
-
-        :raises AssertionError: If the response status code is not 302
-        :raises AssertionError: If the topic with the given name is not
-            created in the database
         """
         url = reverse("news:topic-create")
         data = {"name": "New Topic"}
@@ -122,12 +101,6 @@ class PrivateTopicViewsTest(TestCase):
         Tests the GET request handling for the "topic-update" view. Ensures
         that the correct status code and template are used when accessing the
         topic update page.
-
-        :raises AssertionError: If the status code is not 200, or if the
-        expected template is not used.
-        :param self: Instance of the test case.
-
-        :return: None
         """
         url = reverse("news:topic-update", args=[self.topic.id])
         response = self.client.get(url)
@@ -145,9 +118,6 @@ class PrivateTopicViewsTest(TestCase):
         existing topic successfully updates the topic's data and redirects the
         user to the appropriate page. The test ensures the database is updated
         with the new values provided in the request payload.
-
-        :param self: Instance of the test case.
-        :return: None
         """
         url = reverse("news:topic-update", args=[self.topic.id])
         data = {"name": "Updated Topic"}
@@ -164,10 +134,6 @@ class PrivateTopicViewsTest(TestCase):
         This method verifies the behavior of the topic delete view by sending
         a GET request to the specified URL for deleting a topic and checks
         the response status code and the template used.
-
-        :param self: The instance of the test case.
-        :type self: TestCase
-        :return: None
         """
         url = reverse("news:topic-delete", args=[self.topic.id])
         response = self.client.get(url)
@@ -182,10 +148,6 @@ class PrivateTopicViewsTest(TestCase):
         Handles testing the POST request to the topic delete view. This test
          ensures that a topic is properly deleted upon a successful POST
          request to the appropriate URL endpoint.
-
-        :param self: Reference to the test case instance
-        :type self: TestCase
-        :return: None
         """
         url = reverse("news:topic-delete", args=[self.topic.id])
         response = self.client.post(url)

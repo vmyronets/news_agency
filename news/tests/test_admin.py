@@ -30,8 +30,6 @@ class TestSiteAdmin(TestCase):
         years of experience are presented accurately on the changelist. It
         evaluates the formatted display against the expected outcomes under
         various conditions.
-
-        :return: None
         """
         url = reverse("admin:news_redactor_changelist")
         response = self.client.get(url)
@@ -44,10 +42,6 @@ class TestSiteAdmin(TestCase):
         This function performs a verification check to ensure that the years of
         experience for a redactor are displayed correctly on the change page when
         accessed or updated.
-
-        :param self: Represents the instance of the test case class as per standard
-           in unit tests.
-        :return: None
         """
         url = reverse("admin:news_redactor_change", args=(self.redactor.id,))
         response = self.client.get(url)
