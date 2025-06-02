@@ -46,8 +46,6 @@ class PrivateRedactorViewsTests(TestCase):
         It compares the retrieved list of redactors from the context with the
         expected redactor objects from the database. Additionally, it ensures
         that the correct template has been used to render the view.
-
-        :rtype: None
         """
         response = self.client.get(REDACTOR_LIST_URL)
         redactors = Redactor.objects.all()
@@ -66,8 +64,6 @@ class PrivateRedactorViewsTests(TestCase):
          This includes ensuring the correct HTTP response status code, proper
          context data being passed to the template, and verifying that the
          correct template is used for rendering.
-
-        :return: None
         """
         url = reverse("news:redactor-detail", args=[self.user.id])
         response = self.client.get(url)
@@ -87,10 +83,6 @@ class PrivateRedactorViewsTests(TestCase):
         response status code is as expected, the correct form is
         included in the context, and the proper template is used to
         render the response.
-
-        :param self: The instance of the test case.
-        :type self: TestCase
-        :return: None
         """
         url = reverse("news:redactor-create")
         response = self.client.get(url)
@@ -107,22 +99,6 @@ class PrivateRedactorViewsTests(TestCase):
         through the redactor create view. Ensures the redactor is successfully
         created with the provided data and a redirection occurs with the
         expected status code.
-
-        :param data: Contains the information for creating a new redactor user,
-            including username, passwords, first name, last name, and years
-                of experience.
-            - username : The username for the new redactor user (string).
-            - password1 : The password for the new redactor (string).
-            - password2 : The confirmation password for the new redactor
-                (string).
-            - first_name : The first name of the new redactor user (string).
-            - last_name : The last name of the new redactor user (string).
-            - years_of_experience : The number of years of experience for the
-                redactor (integer).
-
-        :return: Asserts that the response status code is 302
-            (indicating redirection) and validates that the new redactor
-            user is successfully created in the database.
         """
         url = reverse("news:redactor-create")
         data = {
@@ -148,10 +124,6 @@ class PrivateRedactorViewsTests(TestCase):
         a specific user's ID. It validates the response status code and ensures
         the correct template is used, confirming that the redactor update view
         is functioning correctly.
-
-        :param self: The instance of the test case class used to execute the test.
-
-        :return: None
         """
         url = reverse("news:redactor-update", args=[self.user.id])
         response = self.client.get(url)
@@ -166,11 +138,6 @@ class PrivateRedactorViewsTests(TestCase):
         Tests the POST request functionality for updating a redactor user's
         details. This method checks that the user data is updated correctly
         when a POST request is sent to the appropriate redactor update view.
-
-        :param self: Reference to the current instance of the test class
-        :type self: TestCase
-
-        :return: None
         """
         url = reverse("news:redactor-update", args=[self.user.id])
         data = {
@@ -195,8 +162,6 @@ class PrivateRedactorViewsTests(TestCase):
         This method verifies the HTTP response for the GET request to the
         redactor delete view by checking the status code and ensuring the
         correct template is used.
-
-        :return: None
         """
         url = reverse("news:redactor-delete", args=[self.user.id])
         response = self.client.get(url)
@@ -212,9 +177,6 @@ class PrivateRedactorViewsTests(TestCase):
         provided user ID. It performs the deletion operation and validates the
         response status code, ensuring successful removal of the specified
         Redactor object.
-
-        :param self: Instance of the test class.
-        :return: None
         """
         url = reverse("news:redactor-delete", args=[self.user.id])
         response = self.client.post(url)
@@ -228,13 +190,6 @@ class PrivateRedactorViewsTests(TestCase):
         specific username is queried. Verifies the correct HTTP response status
         code and ensures the returned redactor list corresponds to the expected
         user data.
-
-        :param self:
-            Instance of the test case, providing access to the test client's
-            methods, attributes, and the test environment context.
-
-        :return:
-            None
         """
         url = f"{REDACTOR_LIST_URL}?username=test"
         response = self.client.get(url)
@@ -248,11 +203,6 @@ class PrivateRedactorViewsTests(TestCase):
         Tests the functionality of assigning and unassigning a newspaper to/from
         a redactor. This function verifies that a newspaper can be toggled in the
         user's list of assigned newspapers through the respective endpoint.
-
-        :param self: The class instance invoking this method.
-        :type self: object
-        :return: This method does not return a value. Instead, it performs test
-            assertions to validate the toggle functionality.
         """
         # Test assigning a newspaper to the redactor
         url = reverse(

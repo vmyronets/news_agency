@@ -5,7 +5,6 @@ from django.urls import reverse
 from news.models import Newspaper, Topic
 from news.forms import NewspaperForm, NewspaperSearchForm
 
-
 NEWSPAPER_LIST_URL = reverse("news:newspaper-list")
 
 
