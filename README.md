@@ -50,7 +50,7 @@ Follow these steps to set up and run the News Agency Information System locally:
 
 ### Prerequisites
 
-  * Python 3.12
+  * Python 3.X
   * pip (Python package installer)
   * Git
 
