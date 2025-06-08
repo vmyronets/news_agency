@@ -1,0 +1,539 @@
+[
+{
+    "model": "news.topic",
+    "pk": 2,
+    "fields": {
+        "name": "Politics"
+    }
+},
+{
+    "model": "news.topic",
+    "pk": 3,
+    "fields": {
+        "name": "General News"
+    }
+},
+{
+    "model": "news.topic",
+    "pk": 4,
+    "fields": {
+        "name": "Business"
+    }
+},
+{
+    "model": "news.topic",
+    "pk": 5,
+    "fields": {
+        "name": "Economics"
+    }
+},
+{
+    "model": "news.topic",
+    "pk": 6,
+    "fields": {
+        "name": "World Affairs"
+    }
+},
+{
+    "model": "news.topic",
+    "pk": 7,
+    "fields": {
+        "name": "Culture"
+    }
+},
+{
+    "model": "news.topic",
+    "pk": 8,
+    "fields": {
+        "name": "Art"
+    }
+},
+{
+    "model": "news.topic",
+    "pk": 9,
+    "fields": {
+        "name": "Trade"
+    }
+},
+{
+    "model": "news.topic",
+    "pk": 10,
+    "fields": {
+        "name": "Weather"
+    }
+},
+{
+    "model": "news.topic",
+    "pk": 11,
+    "fields": {
+        "name": "Crime"
+    }
+},
+{
+    "model": "news.topic",
+    "pk": 12,
+    "fields": {
+        "name": "Science"
+    }
+},
+{
+    "model": "news.topic",
+    "pk": 13,
+    "fields": {
+        "name": "Technology"
+    }
+},
+{
+    "model": "news.topic",
+    "pk": 14,
+    "fields": {
+        "name": "Sports"
+    }
+},
+{
+    "model": "news.redactor",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$sEXId0gwtLzj4dfHFR0ljL$BqLeDvk4qp1rtTYqzSqxaoAAWyt5v42EDmHA2gNfirs=",
+        "last_login": "2025-05-11T16:18:35Z",
+        "is_superuser": true,
+        "username": "chief_editor",
+        "first_name": "Rupert",
+        "last_name": "Murdoch",
+        "email": "rupert@murdoch.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-05-11T16:18:15Z",
+        "years_of_experience": 9,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "news.redactor",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$9y5K1wIQftiahQ4bZTmV1R$/4rkd+Y/B6u/iiFKGnhQfo1M+b7RrChSXraiiYnhLuY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "johndoe",
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "john@doe.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-05-11T17:16:23Z",
+        "years_of_experience": 3,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "news.redactor",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$S7sGn2z5gLDGp9pc3LzfRN$tYva/JNxT1kA6Eah7ml4Vhs8Ril+zBhfGdPCku0Z2Gc=",
+        "last_login": "2025-06-03T18:51:23.800Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@admin.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-05-13T11:16:14.438Z",
+        "years_of_experience": 10,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "news.redactor",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$ESAGwp0r4oh08WutLY1VzP$cvCJ9DIsnyFuwytUeOlSzM4Glu1Y8YTa1kHGwMF2BCU=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "peterbaker",
+        "first_name": "Peter",
+        "last_name": "Baker",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-05-13T12:08:05.664Z",
+        "years_of_experience": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "news.redactor",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$FtGkZs0IQN5qsljrlQNAb1$vyPyIkXfIQ46rF2CIwJw0oCueVEaULSh6gN1ZLPfC8o=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "fionaharvey",
+        "first_name": "Fiona",
+        "last_name": "Harvey",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-05-13T12:10:53.190Z",
+        "years_of_experience": 6,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "news.redactor",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$5ZIZc08R3v6BzBahlOHWyi$0VTru8HO+lq/Sux8LfURV1sRrq5RxnzsULmauMA54Qg=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "jonhilsenrath",
+        "first_name": "Jon",
+        "last_name": "Hilsenrath",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-05-13T12:13:11.284Z",
+        "years_of_experience": 3,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "news.redactor",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$Hx8pmcjrzrnczjvx7tMoZt$l+eG2dKVScEp8obsYF/xsz0baF5B/mX5/6QPkBv2oa4=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "alainfrachon",
+        "first_name": "Alain",
+        "last_name": "Frachon",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-05-13T12:15:39.462Z",
+        "years_of_experience": 1,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "news.redactor",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$mNlm3ZoAI7ZMj2BV51NFky$J0x0R3olpsIfhirbnKTgI8S7Z+S7y9TbnfJdX62XZ8E=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "swaminathanaiyar",
+        "first_name": "Swaminathan S. Anklesaria",
+        "last_name": "Aiyar",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-05-13T12:18:40.706Z",
+        "years_of_experience": 4,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "news.redactor",
+    "pk": 9,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$iJ3JdVW1ST7jer3d2LPbW6$bUYX/uqn/tT2s5xPU8CGnVqlOp9up0rrd/KaPgqPGPY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "yoichifunabashi",
+        "first_name": "Yoichi",
+        "last_name": "Funabashi",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-05-13T12:21:41.636Z",
+        "years_of_experience": 7,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "news.redactor",
+    "pk": 10,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$MN8KGTfBCjq0QQP3Z3seam$Wk0TdgAjkRZadugWSgwz+dL6rST3QaDHjidg+ZaSQQA=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "peterhannam",
+        "first_name": "Peter",
+        "last_name": "Hannam",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-05-13T12:23:52.693Z",
+        "years_of_experience": 12,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "news.redactor",
+    "pk": 11,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$eqkuQvMArDMIhlxeGkblyb$FnNfhuGOGBh6+sGgBbXEl/J0nsr/tvV2lGSbtvjMPpY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "gilliantett",
+        "first_name": "Gillian",
+        "last_name": "Tett",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-05-13T12:26:00.162Z",
+        "years_of_experience": 7,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "news.redactor",
+    "pk": 12,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$i4wi9XiSx9o6aNz5X8RupE$Hm34w11wdPqIQYSZ+xjRIOe4UEDTtwm7jeLzBiifTKQ=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "tanyatalaga",
+        "first_name": "Tanya",
+        "last_name": "Talaga",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-05-13T12:28:32.938Z",
+        "years_of_experience": 3,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "news.redactor",
+    "pk": 13,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$kyphVF9ZznvJDxMSWrdYxL$HIg3a7sta0dm0SuzXInLRtXZxnEmHi+pNReUSkQBBXw=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "gregoriomoran",
+        "first_name": "Gregorio",
+        "last_name": "Moran",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-05-13T12:30:32.019Z",
+        "years_of_experience": 5,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "news.redactor",
+    "pk": 14,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$dn87nSDkXv5AcRkk2QcRxs$K0Ar5f0d6tMXGijeoRRZHYGsQ1RkgSq6E39z8Kd5QfA=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "jamalelshayyal",
+        "first_name": "Jamal",
+        "last_name": "Elshayyal",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-05-13T12:32:26.076Z",
+        "years_of_experience": 0,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "news.redactor",
+    "pk": 15,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$yrkerTZO637FPj1cXGWyXQ$JV2/S6P11KiYk+hQanV8+y/qVkfN4+GybfZB7G6jsoA=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "billsmith",
+        "first_name": "Bill",
+        "last_name": "Smith",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-05-20T10:20:42.501Z",
+        "years_of_experience": 3,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "news.newspaper",
+    "pk": 2,
+    "fields": {
+        "title": "The New York Times",
+        "content": "White House Announces New Sanctions Against Tech Sector",
+        "published_date": "2025-05-13T12:08:30.712Z",
+        "topic": 2,
+        "publishers": [
+            4
+        ]
+    }
+},
+{
+    "model": "news.newspaper",
+    "pk": 3,
+    "fields": {
+        "title": "The Guardian",
+        "content": "Exclusive: Leaked Documents Reveal Corporate Lobbying Efforts on Climate Change",
+        "published_date": "2025-05-13T12:11:06.286Z",
+        "topic": 3,
+        "publishers": [
+            5
+        ]
+    }
+},
+{
+    "model": "news.newspaper",
+    "pk": 4,
+    "fields": {
+        "title": "The Wall Street Journal",
+        "content": "Interest Rate Hike Sparks Investor Concerns Over Market Stability",
+        "published_date": "2025-05-13T12:13:16.074Z",
+        "topic": 9,
+        "publishers": [
+            6
+        ]
+    }
+},
+{
+    "model": "news.newspaper",
+    "pk": 5,
+    "fields": {
+        "title": "Le Monde",
+        "content": "European Union Debates Stricter Regulations on Artificial Intelligence",
+        "published_date": "2025-05-13T12:15:47.233Z",
+        "topic": 6,
+        "publishers": [
+            7
+        ]
+    }
+},
+{
+    "model": "news.newspaper",
+    "pk": 6,
+    "fields": {
+        "title": "The Times of India",
+        "content": "Government Unveils Ambitious Infrastructure Development Plan",
+        "published_date": "2025-05-13T12:18:44.931Z",
+        "topic": 2,
+        "publishers": [
+            8
+        ]
+    }
+},
+{
+    "model": "news.newspaper",
+    "pk": 7,
+    "fields": {
+        "title": "Asahi Shimbun",
+        "content": "Debate Intensifies Over Nation's Energy Policy Shift",
+        "published_date": "2025-05-13T12:21:45.441Z",
+        "topic": 2,
+        "publishers": [
+            9
+        ]
+    }
+},
+{
+    "model": "news.newspaper",
+    "pk": 8,
+    "fields": {
+        "title": "The Sydney Morning Herald",
+        "content": "Bushfire Recovery Efforts Face New Environmental Challenges",
+        "published_date": "2025-05-13T12:24:13.355Z",
+        "topic": 3,
+        "publishers": [
+            10
+        ]
+    }
+},
+{
+    "model": "news.newspaper",
+    "pk": 9,
+    "fields": {
+        "title": "Financial Times",
+        "content": "Global Supply Chains Under Strain Amid Geopolitical Tensions",
+        "published_date": "2025-05-13T12:26:09.328Z",
+        "topic": 5,
+        "publishers": [
+            3,
+            11
+        ]
+    }
+},
+{
+    "model": "news.newspaper",
+    "pk": 10,
+    "fields": {
+        "title": "The Globe and Mail",
+        "content": "Indigenous Reconciliation Efforts Reach Critical Juncture",
+        "published_date": "2025-05-13T12:28:37.702Z",
+        "topic": 7,
+        "publishers": [
+            15,
+            2,
+            12
+        ]
+    }
+},
+{
+    "model": "news.newspaper",
+    "pk": 11,
+    "fields": {
+        "title": "El Pais",
+        "content": "Debate Erupts Over Proposed Changes to National Arts Funding",
+        "published_date": "2025-05-13T12:30:36.376Z",
+        "topic": 8,
+        "publishers": [
+            13
+        ]
+    }
+},
+{
+    "model": "news.newspaper",
+    "pk": 12,
+    "fields": {
+        "title": "Al Jazeera",
+        "content": "Ceasefire Negotiations in Regional Conflict Show Tentative Progress",
+        "published_date": "2025-05-13T12:32:30.219Z",
+        "topic": 2,
+        "publishers": [
+            14
+        ]
+    }
+},
+{
+    "model": "news.newspaper",
+    "pk": 13,
+    "fields": {
+        "title": "Expres",
+        "content": "People are gradually losing knowledge.",
+        "published_date": "2025-05-16T20:16:27.289Z",
+        "topic": 3,
+        "publishers": [
+            11,
+            2,
+            12
+        ]
+    }
+}
+]
