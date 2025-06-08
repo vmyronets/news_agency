@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 import os
 from dotenv import load_dotenv
 from pathlib import Path
+
 # Load environment variables from .env file
 load_dotenv()
 
@@ -23,12 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("PROJECT_SECRET_KEY")
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG") == "True"
+DEBUG = os.getenv("DJANGO_DEBUG", "") != "False"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
 INTERNAL_IPS = [
     "127.0.0.1",
@@ -43,7 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "debug_toolbar",
     "crispy_forms",
     "crispy_bootstrap5",
     "news",
@@ -51,7 +51,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -80,6 +80,8 @@ TEMPLATES = [
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = ["bootstrap5"]
 
 WSGI_APPLICATION = 'news_agency.wsgi.application'
 
@@ -122,7 +124,7 @@ LOGOUT_REDIRECT_URL = "/"
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Europe/Kyiv'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -144,4 +146,8 @@ ASSETS_ROOT = "/static/assets"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = ["bootstrap5"]
+SESSION_COOKIE_SECURE = True
+
+SECURE_SSL_REDIRECT = True
+
+CSRF_COOKIE_SECURE = True
