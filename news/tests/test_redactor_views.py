@@ -25,7 +25,7 @@ class PrivateRedactorViewsTests(TestCase):
             password="test_password",
             first_name="Test",
             last_name="User",
-            years_of_experience=7
+            years_of_experience=7,
         )
         self.client.force_login(self.user)
         self.topic = Topic.objects.create(
@@ -51,12 +51,8 @@ class PrivateRedactorViewsTests(TestCase):
         redactors = Redactor.objects.all()
 
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(
-            list(response.context["redactor_list"]), list(redactors)
-        )
-        self.assertTemplateUsed(
-            response, "news/redactor_list.html"
-        )
+        self.assertEqual(list(response.context["redactor_list"]), list(redactors))
+        self.assertTemplateUsed(response, "news/redactor_list.html")
 
     def test_redactor_detail_view(self) -> None:
         """
@@ -70,9 +66,7 @@ class PrivateRedactorViewsTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context["redactor"], self.user)
-        self.assertTemplateUsed(
-            response, "news/redactor_detail.html"
-        )
+        self.assertTemplateUsed(response, "news/redactor_detail.html")
 
     def test_redactor_create_view_get(self) -> None:
         """
@@ -89,9 +83,7 @@ class PrivateRedactorViewsTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertIsInstance(response.context["form"], RedactorCreationForm)
-        self.assertTemplateUsed(
-            response, "news/redactor_form.html"
-        )
+        self.assertTemplateUsed(response, "news/redactor_form.html")
 
     def test_redactor_create_view_post(self) -> None:
         """
@@ -107,14 +99,12 @@ class PrivateRedactorViewsTests(TestCase):
             "password2": "test_password123",
             "first_name": "New",
             "last_name": "User",
-            "years_of_experience": 7
+            "years_of_experience": 7,
         }
         response = self.client.post(url, data)
 
         self.assertEqual(response.status_code, 302)
-        self.assertTrue(
-            Redactor.objects.filter(username="new_test_user").exists()
-        )
+        self.assertTrue(Redactor.objects.filter(username="new_test_user").exists())
 
     def test_redactor_update_view_get(self) -> None:
         """
@@ -129,9 +119,7 @@ class PrivateRedactorViewsTests(TestCase):
         response = self.client.get(url)
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(
-            response, "news/redactor_form.html"
-        )
+        self.assertTemplateUsed(response, "news/redactor_form.html")
 
     def test_redactor_update_view_post(self) -> None:
         """
@@ -144,7 +132,7 @@ class PrivateRedactorViewsTests(TestCase):
             "username": "updated_username",
             "first_name": "User",
             "last_name": "Updated",
-            "years_of_experience": 20
+            "years_of_experience": 20,
         }
         response = self.client.post(url, data)
 
@@ -167,9 +155,7 @@ class PrivateRedactorViewsTests(TestCase):
         response = self.client.get(url)
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(
-            response, "news/redactor_confirm_delete.html"
-        )
+        self.assertTemplateUsed(response, "news/redactor_confirm_delete.html")
 
     def test_redactor_delete_view_post(self) -> None:
         """
@@ -205,9 +191,7 @@ class PrivateRedactorViewsTests(TestCase):
         user's list of assigned newspapers through the respective endpoint.
         """
         # Test assigning a newspaper to the redactor
-        url = reverse(
-            "news:toggle-newspaper-assign", args=[self.user.id]
-        )
+        url = reverse("news:toggle-newspaper-assign", args=[self.user.id])
         response = self.client.get(url)
 
         self.assertEqual(response.status_code, 302)

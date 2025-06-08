@@ -32,18 +32,14 @@ class PrivateNewspaperViewsTests(TestCase):
             password="test_password",
             first_name="Test",
             last_name="User",
-            years_of_experience=5
+            years_of_experience=5,
         )
         self.client.force_login(self.user)
 
-        self.topic = Topic.objects.create(
-            name="Test Topic"
-        )
+        self.topic = Topic.objects.create(name="Test Topic")
 
         self.newspaper = Newspaper.objects.create(
-            title="Test Newspaper",
-            content="Test Content",
-            topic=self.topic
+            title="Test Newspaper", content="Test Content", topic=self.topic
         )
         self.newspaper.publishers.add(self.user)
 
@@ -61,12 +57,8 @@ class PrivateNewspaperViewsTests(TestCase):
         newspapers = Newspaper.objects.all()
 
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(
-            list(response.context["newspaper_list"]), list(newspapers)
-        )
-        self.assertTemplateUsed(
-            response, "news/newspaper_list.html"
-        )
+        self.assertEqual(list(response.context["newspaper_list"]), list(newspapers))
+        self.assertTemplateUsed(response, "news/newspaper_list.html")
 
     def test_newspaper_detail_view(self):
         """
@@ -75,16 +67,12 @@ class PrivateNewspaperViewsTests(TestCase):
         context data being passed to the template, and verifying that the
         correct template is used for rendering.
         """
-        url = reverse(
-            "news:newspaper-detail", args=[self.newspaper.id]
-        )
+        url = reverse("news:newspaper-detail", args=[self.newspaper.id])
         response = self.client.get(url)
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context["newspaper"], self.newspaper)
-        self.assertTemplateUsed(
-            response, "news/newspaper_detail.html"
-        )
+        self.assertTemplateUsed(response, "news/newspaper_detail.html")
 
     def test_newspaper_create_view_get(self):
         """
@@ -101,9 +89,7 @@ class PrivateNewspaperViewsTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertIsInstance(response.context["form"], NewspaperForm)
-        self.assertTemplateUsed(
-            response, "news/newspaper_form.html"
-        )
+        self.assertTemplateUsed(response, "news/newspaper_form.html")
 
     def test_newspaper_create_view_post(self):
         """
@@ -123,9 +109,7 @@ class PrivateNewspaperViewsTests(TestCase):
         response = self.client.post(url, data)
 
         self.assertEqual(response.status_code, 302)
-        self.assertTrue(
-            Newspaper.objects.filter(title="New Test Newspaper").exists()
-        )
+        self.assertTrue(Newspaper.objects.filter(title="New Test Newspaper").exists())
 
     def test_newspaper_update_view_get(self):
         """
@@ -137,17 +121,13 @@ class PrivateNewspaperViewsTests(TestCase):
         included in the context with the correct initial data, and
         the proper template is used to render the response.
         """
-        url = reverse(
-            "news:newspaper-update", args=[self.newspaper.id]
-        )
+        url = reverse("news:newspaper-update", args=[self.newspaper.id])
         response = self.client.get(url)
 
         self.assertEqual(response.status_code, 200)
         self.assertIsInstance(response.context["form"], NewspaperForm)
         self.assertEqual(response.context["form"].instance, self.newspaper)
-        self.assertTemplateUsed(
-            response, "news/newspaper_form.html"
-        )
+        self.assertTemplateUsed(response, "news/newspaper_form.html")
 
     def test_newspaper_update_view_post(self):
         """
@@ -156,9 +136,7 @@ class PrivateNewspaperViewsTests(TestCase):
         updated with the provided data and a redirection occurs with the
         expected status code.
         """
-        url = reverse(
-            "news:newspaper-update", args=[self.newspaper.id]
-        )
+        url = reverse("news:newspaper-update", args=[self.newspaper.id])
         data = {
             "title": "Updated Test Newspaper",
             "content": "Updated Test Content",
@@ -182,15 +160,11 @@ class PrivateNewspaperViewsTests(TestCase):
         response status code is as expected and the proper template
         is used to render the response.
         """
-        url = reverse(
-            "news:newspaper-delete", args=[self.newspaper.id]
-        )
+        url = reverse("news:newspaper-delete", args=[self.newspaper.id])
         response = self.client.get(url)
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(
-            response, "news/newspaper_confirm_delete.html"
-        )
+        self.assertTemplateUsed(response, "news/newspaper_confirm_delete.html")
 
     def test_newspaper_delete_view_post(self):
         """
@@ -198,15 +172,11 @@ class PrivateNewspaperViewsTests(TestCase):
         through the newspaper delete view. Ensures the newspaper is successfully
         deleted and a redirection occurs with the expected status code.
         """
-        url = reverse(
-            "news:newspaper-delete", args=[self.newspaper.id]
-        )
+        url = reverse("news:newspaper-delete", args=[self.newspaper.id])
         response = self.client.post(url)
 
         self.assertEqual(response.status_code, 302)
-        self.assertFalse(
-            Newspaper.objects.filter(id=self.newspaper.id).exists()
-        )
+        self.assertFalse(Newspaper.objects.filter(id=self.newspaper.id).exists())
 
     def test_newspaper_search(self):
         """

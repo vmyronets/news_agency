@@ -9,7 +9,8 @@ from news.forms import (
     RedactorCreationForm,
     NewspaperForm,
     TopicSearchForm,
-    NewspaperSearchForm, RedactorSearchForm,
+    NewspaperSearchForm,
+    RedactorSearchForm,
 )
 from news.models import Topic, Redactor, Newspaper
 
@@ -51,9 +52,7 @@ class TopicListView(LoginRequiredMixin, generic.ListView):
         queryset = Topic.objects.all()
         form = TopicSearchForm(self.request.GET)
         if form.is_valid():
-            return queryset.filter(
-                name__icontains=form.cleaned_data.get("name")
-            )
+            return queryset.filter(name__icontains=form.cleaned_data.get("name"))
         return queryset
 
 
@@ -81,18 +80,14 @@ class NewspaperListView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         title = self.request.GET.get("title", "")
-        context["search_newspaper"] = NewspaperSearchForm(
-            initial={"title": title}
-        )
+        context["search_newspaper"] = NewspaperSearchForm(initial={"title": title})
         return context
 
     def get_queryset(self):
         queryset = Newspaper.objects.all()
         form = NewspaperSearchForm(self.request.GET)
         if form.is_valid():
-            return queryset.filter(
-                title__icontains=form.cleaned_data.get("title")
-            )
+            return queryset.filter(title__icontains=form.cleaned_data.get("title"))
         return queryset
 
 
@@ -124,9 +119,7 @@ class RedactorListView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         username = self.request.GET.get("username", "")
-        context["search_redactor"] = RedactorSearchForm(
-            initial={"username": username}
-        )
+        context["search_redactor"] = RedactorSearchForm(initial={"username": username})
         return context
 
     def get_queryset(self):
@@ -169,6 +162,4 @@ def toggle_assign_to_newspaper(request, pk):
         redactor.newspapers.remove(newspaper)
     else:
         redactor.newspapers.add(newspaper)
-    return HttpResponseRedirect(
-        reverse_lazy("news:newspaper-detail", args=[pk])
-    )
+    return HttpResponseRedirect(reverse_lazy("news:newspaper-detail", args=[pk]))

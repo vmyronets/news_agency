@@ -37,9 +37,7 @@ class PrivateTopicViewsTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual = list(response.context["topic_list"]), list(topics)
         self.assertTemplateUsed(response, "news/topic_list.html")
-        self.assertIsInstance(
-            response.context["search_topic"], TopicSearchForm
-        )
+        self.assertIsInstance(response.context["search_topic"], TopicSearchForm)
 
     def test_topic_search(self) -> None:
         """
@@ -78,9 +76,7 @@ class PrivateTopicViewsTest(TestCase):
         response = self.client.get(url)
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(
-            response, "news/topic_form.html"
-        )
+        self.assertTemplateUsed(response, "news/topic_form.html")
 
     def test_topic_create_view_post(self) -> None:
         """
@@ -92,9 +88,7 @@ class PrivateTopicViewsTest(TestCase):
         response = self.client.post(url, data=data)
 
         self.assertEqual(response.status_code, 302)
-        self.assertTrue(
-            Topic.objects.filter(name="New Topic").exists()
-        )
+        self.assertTrue(Topic.objects.filter(name="New Topic").exists())
 
     def test_topic_update_view_get(self) -> None:
         """
@@ -106,9 +100,7 @@ class PrivateTopicViewsTest(TestCase):
         response = self.client.get(url)
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(
-            response, "news/topic_form.html"
-        )
+        self.assertTemplateUsed(response, "news/topic_form.html")
 
     def test_topic_update_view_post(self) -> None:
         """
@@ -139,9 +131,7 @@ class PrivateTopicViewsTest(TestCase):
         response = self.client.get(url)
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(
-            response, "news/topic_confirm_delete.html"
-        )
+        self.assertTemplateUsed(response, "news/topic_confirm_delete.html")
 
     def test_topic_delete_view_post(self) -> None:
         """

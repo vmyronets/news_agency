@@ -27,7 +27,7 @@ class TestRedactorModel(TestCase):
         self.assertEqual(
             str(self.redactor),
             f"{self.redactor.username} "
-            f"({self.redactor.first_name} {self.redactor.last_name})"
+            f"({self.redactor.first_name} {self.redactor.last_name})",
         )
 
     def test_experienced_redactor_creation(self) -> None:
@@ -41,10 +41,7 @@ class TestRedactorModel(TestCase):
 
     def test_get_absolute_url(self) -> None:
         """Test the redactor's get_absolute_url method."""
-        self.assertEqual(
-            self.redactor.get_absolute_url(),
-            "/redactors/1/"
-        )
+        self.assertEqual(self.redactor.get_absolute_url(), "/redactors/1/")
 
 
 class TestNewspaperModel(TestCase):

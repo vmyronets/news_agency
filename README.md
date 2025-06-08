@@ -56,21 +56,21 @@ Follow these steps to set up and run the News Agency Information System locally:
 
 ### Installation
 
-1.  **Clone the repository:**
+1. **Clone the repository:**
 
     ```bash
     git clone https://github.com/vmyronets/news_agency.git # Replace with your actual repo URL if different
     cd news_agency
     ```
 
-2.  **Create a virtual environment (recommended):**
+2. **Create a virtual environment (recommended):**
 
     ```bash
     python3 -m venv venv
     source venv/bin/activate  # On Windows: `venv\Scripts\activate`
     ```
 
-3.  **Install dependencies:**
+3. **Install dependencies:**
 
     ```bash
     pip install -r requirements.txt
@@ -78,8 +78,10 @@ Follow these steps to set up and run the News Agency Information System locally:
 
     *(You'll need a `requirements.txt` file listing all your Python dependencies)*
 
-4.  **Set up environment variables:**
+4. **Set up environment variables:**
     Create a `.env` file in the root of your project (next to `manage.py`) and add your `SECRET_KEY` and other necessary variables.
+    You can also rename the file `.env.sample` and use it as a template to fill in.
+
     **`.env` example:**
 
     ```
@@ -90,27 +92,35 @@ Follow these steps to set up and run the News Agency Information System locally:
 
     **Make sure to add `.env` to your `.gitignore` file\!**
 
-5.  **Apply migrations:**
+5. **Apply migrations:**
 
     ```bash
     python manage.py migrate
     ```
+6. **Use the following command to load data for testing and debugging:**
 
-6.  **Create a superuser (for admin access):**
+    ```bash
+    python manage.py loaddata news_agency_db_data.json
+    ```
+
+7. **Create a superuser (for admin access):**
 
     ```bash
     python manage.py createsuperuser
     ```
+   *Or use an already created one:*
+  * login: `user`
+  * password: `user12345`
 
     Follow the prompts to create your admin account.
 
-7.  **Run the development server:**
+8. **Run the development server:**
 
     ```bash
     python manage.py runserver
     ```
 
-    The application will be accessible at `http://127.0.0.1:8000/`.
+    The application will be accessible at https://news-agency-pnv3.onrender.com
 
 ## Contributing
 
@@ -131,6 +141,7 @@ Contributions are welcome\! Please follow these steps:
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](https://www.google.com/search?q=LICENSE) file for details. *(Make sure you have a https://www.google.com/search?q=LICENSE file in your repository)*
+This project is licensed under the MIT License—see the [LICENSE](https://www.google.com/search?q=LICENSE) file for details.
+*(Make sure you have a https://www.google.com/search?q=LICENSE file in your repository)*
 
 -----

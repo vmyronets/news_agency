@@ -19,11 +19,9 @@ class NewspaperFormTests(TestCase):
             password="test_password",
             first_name="Test",
             last_name="User",
-            years_of_experience=5
+            years_of_experience=5,
         )
-        self.topic = Topic.objects.create(
-            name="Test Topic"
-        )
+        self.topic = Topic.objects.create(name="Test Topic")
 
     def test_newspaper_form_valid_data(self):
         """Test that the form is valid with valid data."""
@@ -31,7 +29,7 @@ class NewspaperFormTests(TestCase):
             "title": "Test Newspaper",
             "content": "Test Content",
             "topic": self.topic.id,
-            "publishers": [self.user.id]
+            "publishers": [self.user.id],
         }
         form = NewspaperForm(data=form_data)
         self.assertTrue(form.is_valid())
@@ -40,15 +38,14 @@ class NewspaperFormTests(TestCase):
         """Test that the form is invalid with no data."""
         form = NewspaperForm(data={})
         self.assertFalse(form.is_valid())
-        self.assertEqual(len(form.errors),
-                         3)  # title, content, topic are required
+        self.assertEqual(len(form.errors), 3)  # title, content, topic are required
 
     def test_newspaper_form_missing_title(self):
         """Test that the form is invalid with missing title."""
         form_data = {
             "content": "Test Content",
             "topic": self.topic.id,
-            "publishers": [self.user.id]
+            "publishers": [self.user.id],
         }
         form = NewspaperForm(data=form_data)
         self.assertFalse(form.is_valid())
@@ -59,7 +56,7 @@ class NewspaperFormTests(TestCase):
         form_data = {
             "title": "Test Newspaper",
             "topic": self.topic.id,
-            "publishers": [self.user.id]
+            "publishers": [self.user.id],
         }
         form = NewspaperForm(data=form_data)
         self.assertFalse(form.is_valid())
@@ -70,7 +67,7 @@ class NewspaperFormTests(TestCase):
         form_data = {
             "title": "Test Newspaper",
             "content": "Test Content",
-            "publishers": [self.user.id]
+            "publishers": [self.user.id],
         }
         form = NewspaperForm(data=form_data)
         self.assertFalse(form.is_valid())
@@ -81,7 +78,7 @@ class NewspaperFormTests(TestCase):
         form_data = {
             "title": "Test Newspaper",
             "content": "Test Content",
-            "topic": self.topic.id
+            "topic": self.topic.id,
         }
         form = NewspaperForm(data=form_data)
         self.assertTrue(form.is_valid())
@@ -96,7 +93,7 @@ class RedactorCreationFormTests(TestCase):
             "last_name": "User",
             "years_of_experience": 5,
             "password1": "test_password",
-            "password2": "test_password"
+            "password2": "test_password",
         }
         form = RedactorCreationForm(data=form_data)
 
@@ -123,7 +120,7 @@ class RedactorSearchFormTests(TestCase):
         """Test that the form field has the correct placeholder."""
         self.assertEqual(
             self.form.fields["username"].widget.attrs["placeholder"],
-            "Search by username"
+            "Search by username",
         )
 
 
@@ -149,8 +146,7 @@ class NewspaperSearchFormTests(TestCase):
         """Test that the form field has the correct placeholder."""
         form = NewspaperSearchForm()
         self.assertEqual(
-            form.fields["title"].widget.attrs["placeholder"],
-            "Search by title"
+            form.fields["title"].widget.attrs["placeholder"], "Search by title"
         )
 
 
@@ -172,6 +168,5 @@ class TopicSearchFormTests(TestCase):
     def test_topic_search_form_field_placeholder(self) -> None:
         """Test that the form field has the correct placeholder."""
         self.assertEqual(
-            self.form.fields["name"].widget.attrs["placeholder"],
-            "Search by name"
+            self.form.fields["name"].widget.attrs["placeholder"], "Search by name"
         )

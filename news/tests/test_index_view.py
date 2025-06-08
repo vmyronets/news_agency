@@ -28,14 +28,10 @@ class IndexViewTests(TestCase):
         # Create additional data to test counts
         Topic.objects.create(name="Another Topic")
         Newspaper.objects.create(
-            title="Another Newspaper",
-            content="Another Content",
-            topic=self.topic
+            title="Another Newspaper", content="Another Content", topic=self.topic
         )
         get_user_model().objects.create_user(
-            username="another_user",
-            password="test_password",
-            years_of_experience=3
+            username="another_user", password="test_password", years_of_experience=3
         )
 
         response = self.client.get(INDEX_URL)
@@ -61,4 +57,4 @@ class IndexViewTests(TestCase):
 
         # Should redirect to the login page
         self.assertEqual(response.status_code, 302)
-        self.assertTrue(response.url.startswith('/accounts/login/'))
+        self.assertTrue(response.url.startswith("/accounts/login/"))
